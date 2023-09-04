@@ -1,5 +1,9 @@
+# tried to make this as clean as possible but it seems wrong somehow
+# TODO: put extracted text into a word document
+
 from pptx import Presentation
 import argparse
+import sys
 
 parser = argparse.ArgumentParser(
                     prog='pptx_to_notes',
@@ -15,6 +19,7 @@ def init_presentation(path):
         print(
             "No file exists at that file location. Double check your file path to make sure it's correct."
         )
+        sys.exit(1)
     return prs
 
 
@@ -30,3 +35,18 @@ def extract_text(prs):
                 for run in paragraph.runs:
                     extracted_text.append(run.text)
     return extracted_text
+
+
+def main():
+    parser.add_argument('file_path')
+    parser.add_argument('save_path')
+
+    args = parser.parse_args()
+
+    prs = init_presentation() # this will definitely cause issues lol
+    extracted_text = extract_text(prs)
+    # tbd
+
+
+if __name__ == "__main__":
+    main()
