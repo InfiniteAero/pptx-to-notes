@@ -1,5 +1,5 @@
 # tried to make this as clean as possible but it seems wrong somehow
-# TODO: put extracted text into a word document
+# TODO: nothing
 
 from pptx import Presentation
 from docx import Document
@@ -48,11 +48,11 @@ def create_document(extracted_text):
 
 def main():
     parser.add_argument('file_path')
-    parser.add_argument('save_path')
+    parser.add_argument('save_path') # needs to be an absolute file path
 
-    args = parser.parse_args(args.file_path)
+    args = parser.parse_args()
 
-    prs = init_presentation() # this will definitely cause issues lol
+    prs = init_presentation(args.file_path) # this will definitely cause issues lol
     extracted_text = extract_text(prs)
     document = create_document(extracted_text)
     document.save(args.save_path)
