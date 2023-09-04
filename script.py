@@ -2,6 +2,7 @@
 # TODO: put extracted text into a word document
 
 from pptx import Presentation
+from docx import Document
 import argparse
 import sys
 
@@ -37,15 +38,26 @@ def extract_text(prs):
     return extracted_text
 
 
+def create_document(extracted_text):
+    """Creates a word document with the extracted slideshow text"""
+    document = Document()
+    for run in extracted_text:
+        document.add_paragraph(run)
+    return document
+
+
 def main():
     parser.add_argument('file_path')
     parser.add_argument('save_path')
 
-    args = parser.parse_args()
+    args = parser.parse_args(args.file_path)
 
     prs = init_presentation() # this will definitely cause issues lol
     extracted_text = extract_text(prs)
-    # tbd
+    document = create_document(extracted_text)
+    document.save(args.save_path)
+
+    print("Done!")
 
 
 if __name__ == "__main__":
