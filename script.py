@@ -1,5 +1,5 @@
 # tried to make this as clean as possible but it seems wrong somehow
-# TODO: nothing
+# TODO: GUI and user-friendliness
 
 from pptx import Presentation
 from docx import Document
@@ -46,19 +46,20 @@ def create_document(extracted_text):
     return document
 
 
-def main():
-    parser.add_argument('file_path')
-    parser.add_argument('save_path') # needs to be an absolute file path
-
-    args = parser.parse_args()
-
-    prs = init_presentation(args.file_path) # this will definitely cause issues lol
-    extracted_text = extract_text(prs)
-    document = create_document(extracted_text)
-    document.save(args.save_path)
-
-    print("Done!")
-
-
-if __name__ == "__main__":
-    main()
+# def main():
+#     parser.add_argument('file_path')
+#     parser.add_argument('save_path') # needs to be an absolute file path
+# 
+#     args = parser.parse_args()
+# 
+#     prs = init_presentation(args.file_path) # this will definitely cause issues lol
+#     extracted_text = extract_text(prs)
+#     document = create_document(extracted_text)
+#     document.save(args.save_path)
+# 
+#     print("Done!")
+# 
+# 
+# if __name__ == "__main__":
+#     main()
+# 
