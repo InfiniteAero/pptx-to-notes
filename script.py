@@ -3,13 +3,13 @@
 
 from pptx import Presentation
 from docx import Document
-import argparse
+# import argparse
 import sys
 
-parser = argparse.ArgumentParser(
-                    prog='pptx_to_notes',
-                    description='Converts a pptx presentation into a abridged word doc (i.e. notes)',
-                    epilog='very cool')
+# parser = argparse.ArgumentParser(
+#                     prog='pptx_to_notes',
+#                     description='Converts a pptx presentation into a abridged word doc (i.e. notes)',
+#                     epilog='very cool')
 
 
 def init_presentation(path):
