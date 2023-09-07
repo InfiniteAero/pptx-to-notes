@@ -57,7 +57,7 @@ def main():
     document = create_document(extracted_text)
     document.save(args.save_path)
 
-    print("Done!")
+    print("Finished!")
 
 
 if __name__ == "__main__":
